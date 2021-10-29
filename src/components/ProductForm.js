@@ -59,90 +59,116 @@ const ProductForm = () => {
         initialValues={initialValue}
         validationSchema={validationSchema}
         onSubmit={submitFun}
+        className=""
       >
         {(formik) => (
-          <form onSubmit={formik.handleSubmit}>
-            <div>
-              <label htmlFor="name">Name</label>
+          <form
+            onSubmit={formik.handleSubmit}
+            className="container-sm row mx-auto my-5 w-75 card shadow-lg lightgrey p-2"
+          >
+            <div className="mb-3  col-12  col-md-8">
+              <label htmlFor="name" className="col form-label">
+                Name
+              </label>
               <input
                 type="text"
                 name="name"
+                className="col form-control"
                 value={formik.values.name}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
-              <ErrorMessage name="name" />
+              <ErrorMessage name="name" class="form-text text-danger" />
             </div>
 
-            <div>
-              <label htmlFor="category">Category</label>
+            <div className=" mb-3  col-12 col-md-8">
+              <label htmlFor="category" className="col form-label">
+                Category
+              </label>
               <select
                 name="category"
+                className="col form-select"
                 value={formik.values.category}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               >
+                <option value="empty">Select one</option>
                 {categoryArray.map((cat, i) => (
                   <option key={i} value={cat}>
                     {cat}
                   </option>
                 ))}
               </select>
-              <ErrorMessage name="category" />
+              <ErrorMessage name="category" class="form-text text-danger" />
             </div>
 
-            <div>
-              <label htmlFor="price">Price</label>
+            <div className=" mb-3 col-12 col-md-8">
+              <label htmlFor="price" className="col form-label">
+                Price
+              </label>
               <input
                 type="text"
                 name="price"
+                className="col form-control"
                 value={parseInt(formik.values.price)}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
-              <ErrorMessage name="price" />
+              <ErrorMessage name="price" class="form-text text-danger" />
             </div>
 
-            <div>
-              <label htmlFor="inStock">Stock Availablity</label>
+            <div className=" mb-3 col-12 col-md-8">
+              <label htmlFor="inStock" className="col form-check-label">
+                Stock Availablity
+              </label>
               {["yes", "no"].map((el) => (
                 <div key={el}>
                   <label>{el === true ? "Available" : "Not-Available"}</label>
                   <input
                     type="radio"
                     name="inStock"
+                    className="col form-check-input"
                     value={el}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
                 </div>
               ))}
-              <ErrorMessage name="inStock" />
+              <ErrorMessage name="inStock" class="form-text text-danger" />
             </div>
 
-            <div>
-              <label htmlFor="material">Material-Type</label>
+            <div className=" mb-3 col-12 col-md-8">
+              <label htmlFor="material" className="col form-label">
+                Material-Type
+              </label>
               <input
                 type="text"
                 name="material"
+                className="col form-control"
                 value={formik.values.material}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
-              <ErrorMessage name="material" />
+              <ErrorMessage name="material" class="form-text text-danger" />
             </div>
 
-            <div>
-              <label htmlFor="desc">Description</label>
+            <div className=" mb-3 col-12 col-md-8">
+              <label htmlFor="desc" className="col form-label">
+                Description
+              </label>
               <textarea
                 name="desc"
+                className="col form-control"
                 placeholder="product desc..."
                 {...formik.getFieldProps("desc")}
               />
-              <ErrorMessage name="desc" />
+              <ErrorMessage name="desc" class="form-text text-danger" />
             </div>
-
-            <button type="submit">Submit</button>
+            <div className="col-12">
+              <button type="submit" className="btn btn-dark">
+                Submit
+              </button>
+            </div>
           </form>
         )}
       </Formik>
