@@ -123,7 +123,7 @@ const ProductForm = () => {
               </label>
               {["yes", "no"].map((el) => (
                 <div key={el}>
-                  <label>{el === true ? "Available" : "Not-Available"}</label>
+                  <label>{el === "yes" ? "Available" : "Not-Available"}</label>
                   <input
                     type="radio"
                     name="inStock"
